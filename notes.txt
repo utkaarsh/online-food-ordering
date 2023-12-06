@@ -1,0 +1,38 @@
+to create a new byDefault branch: git branch -M main
+
+package.json is for configuring npm
+
+package-lock.json keeps the exact log of the inital viersion of all the package versions installed
+
+A dependency that  has its own dependancies is called tranisitive dependencies
+
+In maps and loop you should always have a key ,why ? it helps the loop to uniquely identify each element or else it can fail to identify and the same loop gets repeated all the time or ELSE you can you use index, BUT React officialy doest not support or recommend this as it is a bad practice, it could change the order of your elements...if thers's like no unique id...then lastly use index
+
+EP:05
+
+DATA STRUCTURES FOR REACT:
+RECONCILLIATION (GIT of DOMS basically) :
+
+Diff Aligorthm is used in manipulation of virtual DOM, it is used to find out the difference between the updated virtual DOM and previous virtual DOM,it will first calculate the difference and then simultaneously update it 
+all of this happens at the same time thats why the states in react gets updated so fast
+This is also called as REACT FIBRE, this was introduced in react 16,this is the new way of what we discussed earlier
+React fibre is the on going implementation of react's core algorithm 
+Its key feature is incremental rendering, incremental rendering: the ability to split the rendering work into chunks and spread it over multiple frame 
+super variable concept (eg const [var,setVar=useState]) is nothing but actually destructuring of array.
+
+EP:06
+ Monolith Architecture  vs  Microservice Architecture
+
+Monolith - [API, UI, Auth, DB, SMS] 
+Microservice - [API] [Auth] [DB] [SMS] It has single responsibility concerns, also know as (aka) single princile concerns
+
+React has one of the bestest and fastest rendering methods thats why you never have to bother about rendering in react
+ useEffect-
+ the useEffect gets called after the rendering of the page
+
+ fetch() is super magic provided by browser engine to javascript to fetch data from API
+
+SHIMMER UI is the latest practice used in indrustries instead of loading a spiiner-loader
+
+useState()-
+Whenever state variables are updated,react recreates a reconsiliation cycle or renders
