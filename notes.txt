@@ -29,10 +29,18 @@ Microservice - [API] [Auth] [DB] [SMS] It has single responsibility concerns, al
 React has one of the bestest and fastest rendering methods thats why you never have to bother about rendering in react
  useEffect-
  the useEffect gets called after the rendering of the page
-
- fetch() is super magic provided by browser engine to javascript to fetch data from API
+ also note that if there is no dependency array (i.e the array after the callback arrow function) then useEffect is called on every render   
+ and if the useEffect contains an empty dependency array[] then it is called only on the initial render just once
+ 
+fetch() is super magic provided by browser engine to javascript to fetch data from API
 
 SHIMMER UI is the latest practice used in indrustries instead of loading a spiiner-loader
 
 useState()-
+Used to create local state variables inside a functional component
 Whenever state variables are updated,react recreates a reconsiliation cycle or renders
+
+ROUTES 
+-RouterProvider: this will provide actual routing configuration to our app
+ useRouteError() - Hook
+ it gives you information about your error 

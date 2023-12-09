@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { restaurants } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
+import { Link } from "react-router-dom";
 
 const apiUrl="https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.533117461252107&lng=73.82439438253641&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 // const apiURL=  "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4358011&lng=81.846311&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
@@ -63,7 +64,7 @@ const Body=()=>{
                <div className="res-container">
                {
                filteredList.map((res)=>(
-                <RestaurantCard key={res.info.id} resData={res}/>
+                <Link key={res.info.id} to={"/restaurants/"+res.info.id}><RestaurantCard  resData={res}/></Link>
                 ))
                }  
                </div>
