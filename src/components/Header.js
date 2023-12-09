@@ -13,12 +13,12 @@ const Header=()=>{
             <div className="nav-items">
                  <ul>
                     <li>
-                        <Link to="/">Home</Link></li>
+                        <Link className="no-underline" to="/">Home</Link></li>
                     <li>
-                        <Link to="/about">About us</Link>
+                        <Link className="no-underline" to="/about">About us</Link>
                     </li>
                     <li>
-                        <Link to="/contact">Contact us</Link>
+                        <Link className="no-underline" to="/contact">Contact us</Link>
                     </li>
                     <li>Cart</li>
                     <button className="login-btn" onClick={()=>{

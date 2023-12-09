@@ -64,7 +64,7 @@ const Body=()=>{
                <div className="res-container">
                {
                filteredList.map((res)=>(
-                <Link key={res.info.id} to={"/restaurants/"+res.info.id}><RestaurantCard  resData={res}/></Link>
+                <Link className="no-underline" key={res.info.id} to={"/restaurants/"+res.info.id}><RestaurantCard  resData={res}/></Link>
                 ))
                }  
                </div>
