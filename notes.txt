@@ -69,3 +69,10 @@ Unmounting Phase
     -componentWillUnmount
     -usually happens when you change the component or move to a new page     
 
+\\CV
+    - used the latest version of react routes to follow the practice of using latest trends and also understand and improvise the judgement of what is better and what is not 
+    -learned tu use Reacts Custom hooks for efficient and clean coding
+    -learned about an important concept of dynamic bundling
+    
+
+CODE SPLITTING / CHUNKING / DYNAMIC BUNDLING / LAZY LOADING

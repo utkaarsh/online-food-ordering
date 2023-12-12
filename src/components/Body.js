@@ -3,6 +3,7 @@ import { restaurants } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const apiUrl="https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.533117461252107&lng=73.82439438253641&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 // const apiURL=  "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4358011&lng=81.846311&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
@@ -12,8 +13,9 @@ const Body=()=>{
     const [serachText,setSerachText]=useState("");
     const [listedRestaurants,setListedRestaurants]=useState([]);
     const [filteredList,setFilteredList]=useState();
-
-    useEffect(()=>{
+    
+    
+useEffect(()=>{
         fetchData();
     },[])
     const fetchData= async ()=>{
@@ -30,8 +32,14 @@ const Body=()=>{
         
     };
 
+    const onlineStatus=useOnlineStatus();
+    console.log("online status :",onlineStatus);
+    if(onlineStatus===false) 
+    return(
+         <h1>Looks like you're offline, Please check your internet connection</h1>
+         );
 
-    return listedRestaurants.length===0? <ShimmerUI />:(
+    return listedRestaurants.length===0? <ShimmerUI /> :(
         <div className="body">
             <div className="search">
 
