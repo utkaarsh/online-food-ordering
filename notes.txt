@@ -75,4 +75,4 @@ Unmounting Phase
     -learned about an important concept of dynamic bundling
     
 
-CODE SPLITTING / CHUNKING / DYNAMIC BUNDLING / LAZY LOADING
+EP-09 time: 1:21 CODE SPLITTING / CHUNKING / DYNAMIC BUNDLING / LAZY LOADING
