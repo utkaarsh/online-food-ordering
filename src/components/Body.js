@@ -41,19 +41,19 @@ useEffect(()=>{
 
     return listedRestaurants.length===0? <ShimmerUI /> :(
         <div className="body">
-            <div className="search">
+            <div className="search flex items-center">
 
-                <div className="search-box">
-                    <input type="text" placeholder="search restaurant" value={serachText} onChange={(e)=>{
+                <div className="m-4 px-4 ">
+                    <input className=" border-black border-solid " type="text" placeholder="search restaurant" value={serachText} onChange={(e)=>{
                         setSerachText(e.target.value)
                     }}/>
-                    <button onClick={()=>{
+                    <button className="m-4 p-4 rounded-lg bg-green-100" onClick={()=>{
                         const filteredRes=listedRestaurants.filter(res=>res.info.name.toLowerCase().includes(serachText.toLowerCase()));
                         setFilteredList(filteredRes)
                     }} >search</button>
                 </div>
 
-                <button className="filter-btn" onClick={()=>{
+                <button className="filter-btn m-4 p-4 rounded-lg border-black border-solid bg-gray-100" onClick={()=>{
                     listFiltered=listedRestaurants.filter(res=>res.info.avgRating >= 4)
                     setListedRestaurants(listFiltered);
                     console.log("Filtered Sir !!",listFiltered);
@@ -69,7 +69,7 @@ useEffect(()=>{
             </div> */}
             </div>
             <div className="container">
-               <div className="res-container">
+               <div className="res-container flex flex-wrap">
                {
                filteredList.map((res)=>(
                 <Link className="no-underline" key={res.info.id} to={"/restaurants/"+res.info.id}><RestaurantCard  resData={res}/></Link>
