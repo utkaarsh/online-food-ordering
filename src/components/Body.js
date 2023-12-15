@@ -16,7 +16,7 @@ const Body=()=>{
     
     
 useEffect(()=>{
-        setTimeout(fetchData,3000)
+        setTimeout(fetchData,1000)
     },[])
     const fetchData= ()=>{
         try {
