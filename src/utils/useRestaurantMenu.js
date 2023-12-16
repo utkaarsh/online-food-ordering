@@ -10,7 +10,7 @@ const useRestaurantMenu =(resId)=>{
     },[])
     
     const fetchData = async()=>{
-    const data = await fetch(proxy+MENU_API+resId);
+    const data = await fetch(MENU_API+resId);
     const json=await data.json();
     const resData=json.data.cards[0].card.card.info;
     const menuData=json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1]?.card.card.itemCards;

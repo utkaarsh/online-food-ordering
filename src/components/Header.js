@@ -48,7 +48,7 @@ const Header=()=>{
         //          </ul>
         //     </div>
         // </div>
-        <Disclosure as="nav" className="bg-black ">
+        <Disclosure as="nav" className="bg-[#8a2be2] ">
         {({ open }) => (
           <>
             <div className="mx-auto  max-w-7xl px-2 py-4 sm:px-6 lg:px-8">

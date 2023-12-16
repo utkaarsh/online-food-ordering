@@ -1,11 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
-import { hotels } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
-const apiUrl="https://crossorigin.me?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.533117461252107&lng=73.82439438253641&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+import { apiUrl } from "../utils/constants";
 // const apiURL=  "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4358011&lng=81.846311&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 
@@ -16,14 +14,16 @@ const Body=()=>{
     
     
 useEffect(()=>{
-        setTimeout(fetchData,1000)
+        fetchData()
     },[])
-    const fetchData= ()=>{
+    
+const fetchData= async()=>{
         try {
-            // const data=await fetch(apiUrl);
-            // const json=await data.json();
-            console.log("hotels :",hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
-            const resData=hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+            const data=await fetch(apiUrl);
+            const json=await data.json();
+            // console.log("hotels :",hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+            const resData=json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+            // const resData=hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants
             // console.log("TRACK::",hotels.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
              setListedRestaurants(resData);
              setFilteredList(resData);  
