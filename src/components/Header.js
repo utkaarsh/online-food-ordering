@@ -72,7 +72,7 @@ const Header=()=>{
                       src={logo}
                       alt="Your Company"
                     />
-                    <h1 className="text-white text-lg font-bold mx-4">Online Menu</h1>
+                    <h1 className="text-white text-2xl font-bold mx-4">ONLINE MENU</h1>
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
