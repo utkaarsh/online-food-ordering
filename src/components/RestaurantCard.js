@@ -1,8 +1,8 @@
 import { CDN_IMG_URL } from "../utils/constants";
 
 const RestaurantCard=({resData})=>{
+    console.log('hercules :',resData);
     const {name,avgRating,cuisines,costForTwo,cloudinaryImageId}=resData.info;
-    // console.log(resData );
 return(
      <div className=" res-card p-4 m-4 bg-gray-200 hover:bg-gray-400 hover:shadow-xl w-[250px] min-h-[330px] rounded-lg">
         <img className="res-image rounded-lg" src={CDN_IMG_URL+cloudinaryImageId} alt="" />
@@ -12,6 +12,17 @@ return(
         <h5><b>Cost:</b>{costForTwo}</h5>
     </div>
 )
+}
+
+export const withPromoted=(RestaurantCard)=>{
+    return (props)=>{
+        return(
+            <div>
+                <label className="absolute bg-green-300  text-center px-4 rounded-lg">Pure Veg </label>
+                <RestaurantCard {...props} /> 
+            </div>
+        )
+    }
 }
 
 export default RestaurantCard;

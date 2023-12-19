@@ -76,3 +76,7 @@ Unmounting Phase
     
 
 EP-09 time: 1:21 CODE SPLITTING / CHUNKING / DYNAMIC BUNDLING / LAZY LOADING
+
+
+What is higher order component?
+Higher order component is function that takes a component(as an input ) and return a component(which is much more enhanced ..like adding some features to it) 

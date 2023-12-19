@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{withPromoted} from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -11,12 +11,14 @@ const Body=()=>{
     const [serachText,setSerachText]=useState("");
     const [listedRestaurants,setListedRestaurants]=useState([]);
     const [filteredList,setFilteredList]=useState();
-    
+   
+    //HOC call 
+    const RestaurantCardPromoted=withPromoted(RestaurantCard)
     
 useEffect(()=>{
         fetchData()
     },[])
-    
+
 const fetchData= async()=>{
         try {
             const data=await fetch(apiUrl);
@@ -73,7 +75,10 @@ const fetchData= async()=>{
                <div className="res-container flex flex-wrap justify-center">
                {
                filteredList?.map((res)=>(
-                <Link className="no-underline" key={res.info.id} to={"/restaurants/"+res.info.id}><RestaurantCard  resData={res}/></Link>
+                <Link className="no-underline" key={res.info.id} to={"/restaurants/"+res.info.id}>
+                    {console.log("res =>",res.  info.isOpen)}
+                    {res.info.veg?(<RestaurantCardPromoted resData={res} />): (<RestaurantCard  resData={res}/>)}
+                    </Link>
                 ))
                }  
                </div>
