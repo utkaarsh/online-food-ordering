@@ -1,3 +1,5 @@
+Proxy-URL https://corsproxy.io/?
+
 to create a new byDefault branch: git branch -M main
 
 package.json is for configuring npm

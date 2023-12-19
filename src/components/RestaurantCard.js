@@ -1,7 +1,6 @@
 import { CDN_IMG_URL } from "../utils/constants";
 
 const RestaurantCard=({resData})=>{
-    console.log('hercules :',resData);
     const {name,avgRating,cuisines,costForTwo,cloudinaryImageId}=resData.info;
 return(
      <div className=" res-card p-4 m-4 bg-gray-200 hover:bg-gray-400 hover:shadow-xl w-[250px] min-h-[330px] rounded-lg">

@@ -28,12 +28,13 @@ const fetchData= async()=>{
             // const resData=hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants
             // console.log("TRACK::",hotels.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
              setListedRestaurants(resData);
-             setFilteredList(resData);  
+             setFilteredList(json);  
         } catch (error) {
             console.error('Error fetching data:', error);
         }
         
     };
+console.log("listed res :",filteredList);
 
     const onlineStatus=useOnlineStatus();
     console.log("online status :",onlineStatus);
@@ -74,9 +75,8 @@ const fetchData= async()=>{
             <div className="container">
                <div className="res-container flex flex-wrap justify-center">
                {
-               filteredList?.map((res)=>(
+               listedRestaurants?.map((res)=>(
                 <Link className="no-underline" key={res.info.id} to={"/restaurants/"+res.info.id}>
-                    {console.log("res =>",res.  info.isOpen)}
                     {res.info.veg?(<RestaurantCardPromoted resData={res} />): (<RestaurantCard  resData={res}/>)}
                     </Link>
                 ))
