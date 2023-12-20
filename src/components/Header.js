@@ -123,11 +123,11 @@ const Header=()=>{
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
                         <img
-                          className="h-10 w-10 border border-black rounded-full"
+                          className="h-10 w-10 border border-black rounded-full m-1"
                           src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png"
                           alt="default-user"
                         />
-                        <h3 className=" text-center text-white items-center p-2">Hi {data1.loggedInUser}</h3>
+                        <h3 className=" text-center text-white items-center p-2 mx-1">Hi {data1.loggedInUser}</h3>
                       </Menu.Button>
                     </div>
                     <Transition
