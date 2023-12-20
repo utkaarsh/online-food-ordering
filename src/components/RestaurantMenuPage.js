@@ -24,7 +24,7 @@ const categories=resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.ca
                 //controlled component
             <RestaurantCategory key={category?.title} data={category} showItems={index===showIndex?true:false} 
             setShowIndex={()=>
-                !showIndex?setShowIndex(index):setShowIndex(false)
+                setShowIndex(index)
             } />
             ))}
         </div>
