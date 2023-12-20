@@ -1,9 +1,9 @@
 
-import ShimmerUI from "./ShimmerUI";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import ShimmerUIList from "./ShimmerUIList";
 
 const RestaurantMenuPage=()=>{
 const [showIndex,setShowIndex]=useState(0);    
@@ -15,7 +15,7 @@ const categories=resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.ca
    
 
    
-  return resInfo==null?(<ShimmerUI />): (
+  return resInfo==null?(<ShimmerUIList />): (
         <div className="menu text-center">
             <h1 className="text-2xl my-6"><b>{resData?.name}</b></h1>
             <h3 className="font-bold text-lg">{resData?.cuisines.join(", ")} - {resData?.costForTwoMessage}</h3>
