@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import logo from "../assets/res-logo2.png"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import UserContext from "../utils/userContext"
+
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -20,6 +22,8 @@ function classNames(...classes) {
 const Header=()=>{
     const [logBtn,setLogBtn]=useState("Log in")
     const onlineStatus=useOnlineStatus();
+    const data1=useContext(UserContext);
+    console.log("Context API ->",data1);
 
     return(
         // <div className="header flex justify-between bg-yellow-200 m-4 p-4 shadow-lg ">
@@ -120,9 +124,10 @@ const Header=()=>{
                         <span className="sr-only">Open user menu</span>
                         <img
                           className="h-10 w-10 border border-black rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
+                          src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png"
+                          alt="default-user"
                         />
+                        <h3 className=" text-center text-white items-center p-2">Hi {data1.loggedInUser}</h3>
                       </Menu.Button>
                     </div>
                     <Transition

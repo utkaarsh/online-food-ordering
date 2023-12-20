@@ -10,7 +10,7 @@ const ItemList=({item})=>{
                     <span>{p.card.info.name}</span>
                     <span> - ₹ {p.card.info.price/100 || p.card.info.defaultPrice/100}</span>
                     </div>
-                    <p className="text-xs text-gray-500 text-left">{p.card.info.description}</p>
+                    <p className="text-xs text-gray-500 text-left">{p.card.info.description?p.card.info.description:"Wonderful and delicious"}</p>
                     </div>
 
                     <div className="w-3/12 p-2 ">
