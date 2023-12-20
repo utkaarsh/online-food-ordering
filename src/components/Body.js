@@ -34,10 +34,8 @@ const fetchData= async()=>{
         }
         
     };
-console.log("listed res :",filteredList);
 
     const onlineStatus=useOnlineStatus();
-    console.log("online status :",onlineStatus);
     if(onlineStatus===false) 
     return(
          <h1>Looks like you're offline, Please check your internet connection</h1>
@@ -76,7 +74,7 @@ console.log("listed res :",filteredList);
                <div className="res-container flex flex-wrap justify-center">
                {
                listedRestaurants?.map((res)=>(
-                <Link className="no-underline" key={res.info.id} to={"/restaurants/"+res.info.id}>
+                <Link className="no-underline" key={res.info.name} to={"/restaurants/"+res.info.id}>
                     {res.info.veg?(<RestaurantCardPromoted resData={res} />): (<RestaurantCard  resData={res}/>)}
                     </Link>
                 ))

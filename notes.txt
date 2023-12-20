@@ -75,6 +75,7 @@ Unmounting Phase
     - used the latest version of react routes to follow the practice of using latest trends and also understand and improvise the judgement of what is better and what is not 
     -learned tu use Reacts Custom hooks for efficient and clean coding
     -learned about an important concept of dynamic bundling
+    -used the concept of controled and uncontrolled component
     
 
 EP-09 time: 1:21 CODE SPLITTING / CHUNKING / DYNAMIC BUNDLING / LAZY LOADING
@@ -82,3 +83,20 @@ EP-09 time: 1:21 CODE SPLITTING / CHUNKING / DYNAMIC BUNDLING / LAZY LOADING
 
 What is higher order component?
 Higher order component is function that takes a component(as an input ) and return a component(which is much more enhanced ..like adding some features to it) 
+
+//uncontrolled component does not has its own state (recieves from the parent class or controlled component)
+ 
+ how can a child component modify state variable of the parent component??
+ well its not possible directly
+ but a parent can pass a prop to the child (eg setShowState which will make change on click of the event)
+ remeber data flows in one direction i.e only from a parent to a child only 
+   
+   
+Lifting a state up in react(Very Imp)
+   meaning: Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as lifting state up
+    To coordinate these two panels, you need to “lift their state up” to a parent component in three steps:
+        1. Remove state from the child components.
+        2. Pass hardcoded data from the common parent.
+        3. Add state to the common parent and pass it down together with the event handlers.
+
+Props drilling
