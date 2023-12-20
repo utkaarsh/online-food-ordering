@@ -11,6 +11,7 @@ const Body=()=>{
     const [serachText,setSerachText]=useState("");
     const [listedRestaurants,setListedRestaurants]=useState([]);
     const [filteredList,setFilteredList]=useState();
+    const[filterOn,setFilterOn]=useState(false)
    
     //HOC call 
     const RestaurantCardPromoted=withPromoted(RestaurantCard)
@@ -28,7 +29,7 @@ const fetchData= async()=>{
             // const resData=hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants
             // console.log("TRACK::",hotels.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
              setListedRestaurants(resData);
-             setFilteredList(json);  
+             setFilteredList(resData);  
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -51,24 +52,30 @@ const fetchData= async()=>{
                     }}/>
                     <button className="flex items-center m-4 p-4 border border-black  h-8 w-24 rounded-lg bg-green-100" onClick={()=>{
                         const filteredRes=listedRestaurants.filter(res=>res.info.name.toLowerCase().includes(serachText.toLowerCase()));
-                        setFilteredList(filteredRes)
+                        setFilteredList(filteredRes);
                     }} >search</button>
                 </div>
-
-                {/* <button className="filter-btn m-4 p-4 rounded-lg h-8  flex items-center border border-black border-solid bg-gray-100" onClick={()=>{
-                    listFiltered=listedRestaurants.filter(res=>res.info.avgRating >= 4)
+               {!filterOn? <button className="filter-btn m-4 p-4 rounded-lg h-8  flex items-center border border-black border-solid bg-gray-100" onClick={()=>{
+                    listFiltered=listedRestaurants.filter(res=>res.info.avgRating >= 4.1)
                     setListedRestaurants(listFiltered);
+                    setFilterOn(true);
+
                     console.log("Filtered Sir !!",listFiltered);
                 }}>
                     Top rated restaurants
-                </button>  */}
-            {/* <div className="go-back">
-                <button onClick={()=>{
-                    normalList=listedRestaurants.filter(res=>res.info);
+                </button> :null}
+
+                {filterOn?( <div className="go-back">
+                <button className="m-4 p-4 rounded-lg h-8  flex items-center border border-black border-solid bg-gray-100" onClick={()=>{
+                    normalList=filteredList.filter(res=>res.info);
                     console.log("Hitted Gp back to all");
-                    setListedRestaurants(normalList)
+                        setListedRestaurants(normalList);
+                        setFilterOn(false);
                 }}>All restaurants</button>
-            </div> */}
+            </div>):null}
+           
+
+
             </div>
             <div className="container">
                <div className="res-container flex flex-wrap justify-center">
