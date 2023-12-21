@@ -2,7 +2,7 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
-import { useState } from "react";
+import React,{ useState } from "react";
 import ShimmerUIList from "./ShimmerUIList";
 
 const RestaurantMenuPage=()=>{
@@ -30,4 +30,4 @@ const categories=resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.ca
         </div>
     )
 }
-export default RestaurantMenuPage;
+export default React.memo(RestaurantMenuPage);

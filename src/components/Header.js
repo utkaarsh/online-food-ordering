@@ -6,20 +6,25 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import UserContext from "../utils/userContext"
+import { useSelector } from "react-redux";
+ 
 
-
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'About', href: '/about', current: false },
-  { name: 'Contact Us', href: '/contact', current: false },
-  { name: 'Cart', href: '#', current: false },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 const Header=()=>{
+  //subscribing the store using a selector
+const cartItems = useSelector((store)=>store.cart.items);
+console.log("Selectors",cartItems);
+ 
+const navigation = [
+  { name: 'Home', href: '/', current: true },
+  { name: 'About', href: '/about', current: false },
+  { name: 'Contact Us', href: '/contact', current: false },
+  { name: `Cart [${cartItems.length}]`, href: '/cart', current: false },
+]
     const [logBtn,setLogBtn]=useState("Log in")
     const onlineStatus=useOnlineStatus();
     const data1=useContext(UserContext);

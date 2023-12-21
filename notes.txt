@@ -1,4 +1,4 @@
-Proxy-URL https://corsproxy.io/?
+﻿Proxy-URL https://corsproxy.io/?
 
 to create a new byDefault branch: git branch -M main
 
@@ -100,3 +100,7 @@ Lifting a state up in react(Very Imp)
         3. Add state to the common parent and pass it down together with the event handlers.
 
 Props drilling
+
+React redux :
+
+

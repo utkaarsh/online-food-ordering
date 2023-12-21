@@ -1,6 +1,16 @@
+import { useDispatch } from "react-redux";
 import { CDN_IMG_URL } from "../utils/constants";
+import { addItems } from "../utils/store/CartSlice";
+import React from "react";
 
-const ItemList=({item})=>{
+const ItemList=React.memo(({item})=>{
+    console.log("ItemList rendering");
+    const dispatch=useDispatch();    
+    const handleItem=(item)=>{
+        //Dispatching an action
+        dispatch(addItems(item))
+    }
+
     return (
         <div>
              {item?.map((p)=>(
@@ -15,11 +25,16 @@ const ItemList=({item})=>{
 
                     <div className="w-3/12 p-2 ">
                 <img src={p.card.info.imageId?CDN_IMG_URL+p.card.info.imageId:"https://png.pngtree.com/element_our/20200702/ourmid/pngtree-vector-illustration-knife-and-fork-western-food-plate-image_2283844.jpg"} className=" w-[150px]  border border-gray-300 rounded-lg " alt="food-img" />
-                <button className="p-2 shadow-lg bg-green-100 w-15 h-8 p-2 rounded-lg"> Add + </button>
+                <button className="p-2 shadow-lg bg-green-100 w-15 h-8 p-2 rounded-lg"
+               onClick={
+                ()=>
+                handleItem(p)
+                } >
+                 Add + </button>
                 </div>
                 </div>
                 ))}
         </div>
     )
-}
+})
 export default ItemList;
