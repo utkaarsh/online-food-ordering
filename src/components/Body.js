@@ -24,10 +24,13 @@ const fetchData= async()=>{
         try {
             const data=await fetch(apiUrl);
             const json=await data.json();
-            // console.log("hotels :",hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
-            const resData=json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+            const hotels=json.data.cards.filter(p=>p.card?.card["@type"]==="type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget");
+            const availBrands=hotels.map(p=>p.card.card.gridElements.infoWithStyle);
+            const displayResList=availBrands.filter(f=>f["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle")
+            const showRes=displayResList.map(p=>p?.restaurants);
+            const resData=showRes[0];
+            // const resData=json.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants
             // const resData=hotels[0].data.cards[2].card.card.gridElements.infoWithStyle.restaurants
-            // console.log("TRACK::",hotels.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
              setListedRestaurants(resData);
              setFilteredList(resData);  
         } catch (error) {
