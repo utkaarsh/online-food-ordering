@@ -25,14 +25,14 @@ const category2=resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.car
             <h2 className="py-2 font-bold">Menu</h2>
             {categories.length!==0?categories?.map((category,index)=>(
                 //controlled component
-            <RestaurantCategory key={category?.title} data={category} showItems={index===showIndex?true:false} 
+            <RestaurantCategory key={category?.title} data={category} showExpand={index===showIndex?true:false} 
             setShowIndex={()=>
                 setShowIndex(index)
             } />
             ))
             : category2?.map((category,index)=>(
                 //controlled component
-            <RestaurantCategory key={category?.title} data={category} showItems={index===showIndex?true:false} 
+            <RestaurantCategory key={category?.title} data={category} showExpand={index===showIndex?true:false} 
             setShowIndex={()=>
                 setShowIndex(index)
             } />
