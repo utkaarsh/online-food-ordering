@@ -18,7 +18,7 @@ const Cart =()=>{
             {cartItems.length!==0?<button className="p-2 m-2 text-white bg-black border rounded-lg " onClick={()=>handleClearCart(cartItems)}>Clear All</button>:null}
             <div className="  mt-10 mx-auto w-7/12 ">
             <Suspense fallback={<h1>Loading ...</h1>}> <ItemList item={cartItems} /> </Suspense>
-
+ 
             </div>
         </div>
     )
