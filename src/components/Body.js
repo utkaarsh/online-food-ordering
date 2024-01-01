@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{withPromoted} from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ const Body=()=>{
     const[filterOn,setFilterOn]=useState(false)
    
     //HOC call 
-    // const RestaurantCardPromoted=withPromoted(RestaurantCard)
+    const RestaurantCardPromoted=withPromoted(RestaurantCard)
     
 useEffect(()=>{
         fetchData()
@@ -50,15 +50,15 @@ const fetchData= async()=>{
             <div className="search flex items-center">
 
                 <div className="flex flex-wrap items-center m-4 px-2 ">
-                    <input className=" border shadow-lg h-8 rounded-lg p-2" type="text" placeholder="search restaurant" value={serachText} onChange={(e)=>{
+                    <input className=" border border-black border-solid h-8 rounded-lg p-2" type="text" placeholder="search restaurant" value={serachText} onChange={(e)=>{
                         setSerachText(e.target.value)
                     }}/>
-                    <button className="flex shadow-lg items-center m-4 p-4 border h-8 w-24 rounded-lg bg-green-100 transform active:scale-75 transition-transform" onClick={()=>{
+                    <button className="flex items-center m-4 p-4 border border-black  h-8 w-24 rounded-lg bg-green-100" onClick={()=>{
                         const filteredRes=listedRestaurants.filter(res=>res.info.name.toLowerCase().includes(serachText.toLowerCase()));
                         setFilteredList(filteredRes);
                     }} >search</button>
                 </div>
-               {!filterOn? <button className="shadow-lg filter-btn m-4 p-4 rounded-lg h-8  flex items-center border bg-gray-100 transform active:scale-75 transition-transform" onClick={()=>{
+               {!filterOn? <button className="filter-btn m-4 p-4 rounded-lg h-8  flex items-center border border-black border-solid bg-gray-100" onClick={()=>{
                     listFiltered=listedRestaurants.filter(res=>res.info.avgRating >= 4.1)
                     setListedRestaurants(listFiltered);
                     setFilterOn(true);
@@ -69,11 +69,12 @@ const fetchData= async()=>{
                 </button> :null}
 
                 {filterOn?( <div className="go-back">
-                <button className=" shadow-lg transform active:scale-75 transition-transform m-4 p-4 rounded-lg h-8  flex items-center border border-solid bg-gray-100" onClick={()=>{
+                <button className="m-4 p-4 rounded-lg h-8  flex items-center border border-black border-solid bg-gray-100" onClick={()=>{
                     normalList=filteredList.filter(res=>res.info);
+                    console.log("Hitted Gp back to all");
                         setListedRestaurants(normalList);
                         setFilterOn(false);
-                }}> 🔙 All restaurants</button>
+                }}>All restaurants</button>
             </div>):null}
            
 
@@ -84,7 +85,7 @@ const fetchData= async()=>{
                {
                listedRestaurants?.map((res)=>(
                 <Link className="no-underline" key={res.info.name} to={"/restaurants/"+res.info.id}>
-                    <RestaurantCard  resData={res}/>
+                    {res.info.veg?(<RestaurantCardPromoted resData={res} />): (<RestaurantCard  resData={res}/>)}
                     </Link>
                 ))
                }  
