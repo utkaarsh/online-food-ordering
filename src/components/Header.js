@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
-import logo from "../assets/res-logo2.png"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
 import { Fragment } from 'react'
+// import logo from '../assets/reslogo.png'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import UserContext from "../utils/userContext"
@@ -16,8 +16,9 @@ function classNames(...classes) {
 
 const Header=()=>{
   //subscribing the store using a selector
+const logo='https://image.similarpng.com/very-thumbnail/2021/07/Chef-restaurant-logo-illustrations-template-on-transparent-background-PNG.png'
 const cartItems = useSelector((store)=>store.cart.items);
-console.log("Selectors",cartItems);
+// console.log("Selectors",cartItems);
  
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -28,7 +29,7 @@ const navigation = [
     const [logBtn,setLogBtn]=useState("Log in")
     const onlineStatus=useOnlineStatus();
     const data1=useContext(UserContext);
-    console.log("Context API ->",data1);
+    // console.log("Context API ->",data1);
 
     return(
         // <div className="header flex justify-between bg-yellow-200 m-4 p-4 shadow-lg ">
