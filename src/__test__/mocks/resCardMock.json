@@ -1,0 +1,72 @@
+{
+    "id": "69891",
+    "name": "Wadeshwar",
+    "cloudinaryImageId": "bubolfclcdeayyd9mnhl",
+    "locality": "The Pavillion Mall",
+    "areaName": "Senapati Bapat Road",
+    "costForTwo": "₹300 for two",
+    "cuisines": [
+        "South Indian",
+        "Snacks",
+        "Street Food"
+    ],
+    "avgRating": 4.3,
+    "veg": true,
+    "parentId": "1770",
+    "avgRatingString": "4.3",
+    "totalRatingsString": "500+",
+    "sla": {
+        "deliveryTime": 23,
+        "lastMileTravel": 1,
+        "serviceability": "SERVICEABLE",
+        "slaString": "20-25 mins",
+        "lastMileTravelString": "1.0 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2024-01-14 23:00:00",
+        "opened": true
+    },
+    "badges": {
+        "imageBadges": [
+            {
+                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                "description": "pureveg"
+            }
+        ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {
+                "badgeObject": [
+                    {
+                        "attributes": {
+                            "description": "pureveg",
+                            "imageId": "v1695133679/badges/Pure_Veg111.png"
+                        }
+                    }
+                ]
+            },
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "aggregatedDiscountInfoV3": {
+        "header": "₹120 OFF",
+        "subHeader": "ABOVE ₹199",
+        "discountTag": "FLAT DEAL"
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+}
